@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block title %} 
+Create Post
+{% endblock %}
+
+
+{% block mymessage %}
+
+<div class="container">
+    <article class="sign-up">
+        <h1 class="sign-up__title">Post to Facebook</h1>
+
+        <form class="sign-up-form form" action="" method="POST">
+          {% csrf_token %} 
+          <label class="form-label-wrapper">
+            <p class="form-label">message</p>
+            <input class="form-input" type="text"  placeholder="message" required style="height: 200px;vertical-align: top">
+          </label>
+
+          <button class="form-btn primary-default-btn transparent-btn">Post</button>
+        </form>
+</div>
+
+{% endblock %} 

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} 
+Create Post
+{% endblock %}
+
+
+
+{% block mymessage %}
+
+<div class = "write-post-container">
+    <div class="user-profile">
+        <img src = {% static "image/avatar/blank_profile.png" %}>
+        <div>
+            <p>life in Darwin</p>
+            <small> Public </small>
+        </div>
+    </div>
+
+    <div class = "post-input-container">
+        <form action="" method="POST" enctype="multipart/form-data" >
+            {%csrf_token%}
+            <textarea name="message" row="1" placeholder="post to your page" required ></textarea>
+            <div class="add-post-links">
+                <label for="uploadFiles">
+                    <img src="{% static "image/photo.svg" %}" alt="Photo">
+                    Upload photo/video:
+                </label>
+                <input type="file" id="uploadFiles" name="uploadFiles" multiple accept="image/*"  style="display: none" onchange="handleFiles(event)" >
+                <div id="uploadFileLists"></div>
+            </div>
+
+            <div class="add-post-platform-container">
+                <input type="checkbox" id="Facebook_box" name="platforms" value="Facebook_box" >
+                <label><img class="social-icon" src={% static "image/facebook.svg" %}>Facebook</label>
+
+                <input type="checkbox" id="Instagram_box" name="platforms" value="Instagram_box" >
+                <label><img class="social-icon" src={% static "image/instagram.svg" %}>Instagram</label>
+
+                <input type="checkbox" id="Twitter_box" name="platforms" value="Twitter_box" >
+                <label><img class="social-icon" src={% static "image/twitter.svg" %}>X(Twitter)</label>
+            </div>
+            {% for message in messages %}
+            <h5 style="color: red"> {{message}}</h5>
+            {% endfor %}
+            <div>
+                <button class="form-btn primary-default-btn transparent-btn">Post</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Success message section -->
+    {% if success_message %}
+    <div class="success-message">
+        {{ success_message }}
+    </div>
+    {% endif %}
+</div>
+
+
+
+{% endblock %} 

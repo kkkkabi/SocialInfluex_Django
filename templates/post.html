@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Post{% endblock %}
+
+
+{% block mymessage %}
+
+<div class = "write-post-container">
+    <div class="user-profile">
+        <img src = {% static "image/avatar/blank_profile.png" %}>
+        <div>
+            <p>life in Darwin</p>
+            <small> Public </small>
+        </div>
+    </div>
+
+    <div class = "post-input-container">
+        <textarea row="1" placeholder = "post to your page" ></textarea>
+        <div class="add-post-links">
+            <a href="#"><img src={% static "image/video.svg" %}> video</a>
+            <a href="#"><img src={% static "image/photo.svg" %}> Photo</a>
+            <a href="#"><img src={% static "image/feeling.svg" %}> Feeling</a>
+        </div>
+        <div class="add-post-platform-container">
+            <input type="checkbox" id="Facebook_box" value="FB_selected">
+            <label><img class="social-icon" src={% static "image/facebook.svg" %}>Facebook</label>
+            <input type="checkbox" id="Instagram_box" value="IG_selected">
+            <label><img class="social-icon" src={% static "image/instagram.svg" %}>Instagram</label>
+            <input type="checkbox" id="Twitter_box" value="TT_selected">
+            <label><img class="social-icon" src={% static "image/twitter.svg" %}>Twitter</label>
+        </div>
+        <div>
+        <button class="form-btn primary-default-btn transparent-btn">Post</button>
+        </div>
+    </div>
+</div>
+
+<div class="post-container">
+    <div class="post-row">
+        <div class="user-profile">
+            <img src = {% static "image/avatar/blank_profile.png" %}>
+            <div>
+                <p>life in Darwin</p>
+                <small class="post-span">31 March 2021, 13:40 pm</small>
+            </div>
+        </div>
+    </div>
+
+    <p class="post-text">SocialInflux, application for posting across multiple platforms.
+        <a href="#">#SocialInfluex</a> 
+        <a href="#">#youtubeChannel</a>
+    </p>
+    <img src="{% static "example/img3.jpg" %}" class="post-img">
+
+    <div class="post-row">
+        <div class="activity-icons">
+            <div><img src={% static "image/like.png" %}>120</div>
+            <div><img src={% static "image/comment.png" %}>120</div>
+            <div><img src={% static "image/share.png" %}>120</div>
+        </div>
+        <div class="post-profile-icon">
+            <img src={%static "image/avatar/blank_profile.png" %}><i class="fas fa-caret-down"></i>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="load-more-btn">Load more...</button>
+
+
+{% endblock %} 
+
+
